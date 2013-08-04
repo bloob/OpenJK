@@ -306,15 +306,10 @@ void			 VM_Shifted_Alloc( void **ptr, int size );
 void			 VM_Shifted_Free( void **ptr );
 void			*VM_ArgPtr( intptr_t intValue );
 void			*VM_ExplicitArgPtr( vm_t *vm, intptr_t intValue );
+float			_vmf( intptr_t x );
 
-#define	VMA(x) VM_ArgPtr(args[x])
-
-static QINLINE float _vmf( intptr_t x ) {
-	floatint_t fi;
-	fi.i = (int) x;
-	return fi.f;
-}
-#define	VMF(x)	_vmf( args[x] )
+#define	VMA(x) VM_ArgPtr( args[x] )
+#define	VMF(x) _vmf( args[x] )
 
 /*
 ==============================================================
